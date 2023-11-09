@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+
+<body>
+    <header>
+      <div class="developer">
+        <span style="font-size: 1.5em; font-weight: bold; text-align: right; color: #ff66ff">개발 : 곽규하</span>
+      </div>
+      <div class="designer">
+        <span style="font-size: 1.5em; font-weight: bold; text-align: right; color: #00ff00;">디자인 : 미적 감각 없음</span>
+      </div>
+    </header>
+    <main>
+      <span style="font-size: 1.5em; font-weight: bold; text-align: right; color: #0000ff;">css 개발자 구함</span>
+    </main>
+</body>
+
+<hr>
+
+
+  
+  
+  
+    
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>8-4반 메인페이지</title>
+</head>
+
+<body>
+    <h1>#8학년 4반 공지사항(보연쌤의 아이들)</h1>
+    <ul>
+    
+    <% for (comment of comments.sort((a, b) => b.createdAt - a.createdAt)) { %>
+        <li><%= comment.content %></li>
+        <form action="/update/<%= comment.id %>" method="post">
+            <input type="text" id="lname" name="content">
+            <input type="submit" value="수정하기">
+        </form>
+        <h1></h1>
+        <form action="/delete/<%= comment.id %>" method="post">
+            <input type="submit" value="삭제하기">
+        </form>
+    <% } %>
+    </ul>
+    <hr>
+    <h1>놀라운 내용을 작성해보세요!</h1>
+    <form action="/create" method="post">
+        <input type="text" id="lname" name="content"><br><br>
+        <input type="submit" value="Submit">
+    </form>
+</body>
+</html>
